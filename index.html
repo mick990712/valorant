@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101619" />
+    <title>激情四射 — 戰術射擊原型</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js"
+        }
+      }
+    </script>
+    <script type="module" src="./main.js"></script>
+  </head>
+  <body>
+    <main id="game" aria-label="激情四射 3D 射擊遊戲">
+      <div id="hud" class="hidden">
+        <div class="topbar">
+          <div class="brand"><span class="brand-mark">F</span> 激情四射</div>
+          <div class="round-info">
+            <span class="eyebrow">訓練回合</span>
+            <strong id="timer">01:30</strong>
+          </div>
+          <div class="enemy-counter"><span class="status-dot"></span><span id="enemy-count">3</span> 名敵人</div>
+        </div>
+        <div class="bottom-hud">
+          <section class="health-panel">
+            <span class="eyebrow">生命值</span>
+            <div class="health-row">
+              <strong id="health-value">100</strong>
+              <div class="health-track"><span id="health-fill"></span></div>
+            </div>
+          </section>
+          <section class="ammo-panel">
+            <span class="eyebrow">訓練步槍</span>
+            <div class="ammo-row"><strong id="ammo-value">12</strong><span>/ 48</span></div>
+            <span id="ammo-note">R 重新裝填</span>
+          </section>
+        </div>
+        <div id="crosshair" aria-hidden="true">
+          <i></i><i></i><i></i><i></i><b></b>
+        </div>
+        <div id="hit-flash"></div>
+        <div id="hit-marker" aria-hidden="true">×</div>
+        <div id="toast" role="status"></div>
+      </div>
+
+      <section id="overlay" class="overlay">
+        <div class="menu-card">
+          <div class="menu-kicker"><span></span> 單人訓練 · 原型版</div>
+          <h1 id="overlay-title">激情四射</h1>
+          <p id="overlay-copy">在限時內擊敗所有敵人。善用掩體，保持移動。</p>
+          <div class="control-grid">
+            <div><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><span>移動</span></div>
+            <div><kbd>滑鼠</kbd><span>瞄準</span></div>
+            <div><kbd>左鍵</kbd><span>點擊單發／按住連發</span></div>
+            <div><kbd>R</kbd><span>重新裝填</span></div>
+            <div><kbd>ESC</kbd><span>暫停</span></div>
+          </div>
+          <button id="start-button" type="button">開始訓練 <span>→</span></button>
+          <p id="menu-note" class="menu-note">建議使用桌面版 Chrome 或 Edge · 點擊後鎖定滑鼠</p>
+        </div>
+      </section>
+      <div id="loading" class="loading">正在載入訓練場…</div>
+    </main>
+  </body>
+</html>
